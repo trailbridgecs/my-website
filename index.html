@@ -206,12 +206,48 @@
           optimization, and digital transformation.
         </p>
       </div>
+
+      <a
+        href="#about"
+        class="hero-scroll-cue"
+        aria-label="Scroll to About section"
+      >
+        <span>Scroll</span>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M3 6l5 5 5-5"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+
+      <svg
+        class="hero-divider"
+        viewBox="0 0 1600 90"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path
+          d="M0,40 C300,90 500,0 800,35 C1100,70 1300,10 1600,45 L1600,90 L0,90 Z"
+          fill="var(--bg-color)"
+        />
+      </svg>
     </header>
 
     <!-- About Section -->
     <section id="about" class="container">
-      <h2>About Us</h2>
-      <p>
+      <h2 class="reveal">About Us</h2>
+      <p class="reveal">
         TrailBridge Consulting Services delivers strategic Salesforce expertise
         designed to streamline operations and elevate customer experience. We
         specialize in configuring and customizing core CRM clouds to align
@@ -221,9 +257,9 @@
 
     <!-- Services Section -->
     <section id="services" class="container">
-      <h2>Salesforce Consulting Services</h2>
+      <h2 class="reveal">Salesforce Consulting Services</h2>
       <div class="grid">
-        <div class="card">
+        <div class="card reveal">
           <h3>Sales Cloud Implementation & Optimization</h3>
           <p>
             Optimize your lead-to-cash pipeline. We help configure custom deal
@@ -231,7 +267,7 @@
             drive revenue growth.
           </p>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>Service Cloud Excellence</h3>
           <p>
             Transform customer support operations. We set up Case Management,
@@ -239,7 +275,7 @@
             automated SLA escalations.
           </p>
         </div>
-        <div class="card">
+        <div class="card reveal">
           <h3>CRM Enhancements & Automation</h3>
           <p>
             Tailored Apex automation, Lightning Web Component (LWC) development,
@@ -251,13 +287,13 @@
 
     <!-- Contact Section -->
     <section id="contact" class="container text-center">
-      <h2>Get in Touch</h2>
-      <p class="contact-subtext">
+      <h2 class="reveal">Get in Touch</h2>
+      <p class="contact-subtext reveal">
         Have a Salesforce requirement or looking to optimize your Sales &
         Service Cloud implementation?
       </p>
 
-      <div class="email-box">
+      <div class="email-box reveal">
         <span class="email-icon">✉️</span>
         <a href="mailto:trailbridgecs@gmail.com" class="contact-email"
           >trailbridgecs@gmail.com</a
@@ -269,6 +305,24 @@
     <footer>
       <p>&copy; 2026 TrailBridge Consulting Services. All rights reserved.</p>
     </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M3 10l5-5 5 5"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
 
     <script src="script.js"></script>
   </body>
