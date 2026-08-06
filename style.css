@@ -13,6 +13,13 @@
   --nav-border: #eef1f6;
   --footer-bg: #0b1220;
   --footer-text: #cbd5e1;
+
+  --font-display: "Sora", -apple-system, sans-serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+
+  /* Swap this for a licensed photo URL if you'd rather use one, e.g.
+     --hero-bg-image: url("images/hero-network.jpg");  */
+  --hero-bg-image: none;
 }
 
 body.dark-mode {
@@ -32,9 +39,7 @@ body.dark-mode {
 
 body {
   margin: 0;
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg-color);
   color: var(--text-color);
   transition:
@@ -73,11 +78,35 @@ a {
 .brand-logo {
   display: flex;
   align-items: center;
+  gap: 0.65rem;
   text-decoration: none;
 }
 
-.logo-title {
-  fill: var(--text-color);
+.brand-icon {
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.2px;
+  color: var(--text-color);
+}
+
+.brand-tagline {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.62rem;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--primary-color);
 }
 
 .nav-links {
@@ -112,6 +141,8 @@ a {
 
 /* ---------- Hero ---------- */
 .hero {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(
     135deg,
     var(--primary-color),
@@ -122,45 +153,138 @@ a {
   text-align: center;
 }
 
+/* Mesh / network background — swap --hero-bg-image for a photo if desired */
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  background-image:
+    var(--hero-bg-image),
+    radial-gradient(
+      circle at 1px 1px,
+      rgba(255, 255, 255, 0.35) 1px,
+      transparent 0
+    );
+  background-size:
+    cover,
+    34px 34px;
+  background-position: center, center;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.hero-mesh::before,
+.hero-mesh::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.hero-mesh::before {
+  width: 420px;
+  height: 420px;
+  top: -120px;
+  left: -80px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.hero-mesh::after {
+  width: 360px;
+  height: 360px;
+  bottom: -140px;
+  right: -60px;
+  background: rgba(0, 20, 60, 0.18);
+}
+
 .hero-content {
-  max-width: 720px;
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
   margin: 0 auto;
 }
 
-.hero h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 1rem;
+.hero-icon {
+  margin-bottom: 1.25rem;
+  animation: heroBump 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
   font-weight: 800;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.5px;
 }
 
-.hero p {
-  font-size: 1.15rem;
-  opacity: 0.95;
-  margin-bottom: 2rem;
-}
-
-.btn-primary {
+.hero-word {
   display: inline-block;
-  background-color: #ffffff;
-  color: var(--primary-color);
-  font-weight: 600;
-  text-decoration: none;
-  padding: 0.9rem 2rem;
-  border-radius: 8px;
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: heroWordReveal 0.65s ease forwards;
+  animation-delay: calc(0.55s + var(--i) * 0.16s);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.hero-word:not(:last-child)::after {
+  content: " ";
+}
+
+.hero-subtext {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroWordReveal 0.7s ease forwards;
+  animation-delay: 1.25s;
+}
+
+@keyframes heroBump {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-10deg);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.3) rotate(5deg);
+  }
+  75% {
+    transform: scale(0.92) rotate(-2deg);
+  }
+  90% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes heroWordReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-icon,
+  .hero-word,
+  .hero-subtext {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---------- Sections / Headings ---------- */
 h2 {
+  font-family: var(--font-display);
   font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-family: var(--font-display);
 }
 
 #about p {
