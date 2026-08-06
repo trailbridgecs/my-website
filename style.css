@@ -1,12 +1,213 @@
-/* Contact Email Box Styling */
+/* =========================================================
+   Trailbridge Consulting Services — Stylesheet
+   ========================================================= */
+
+:root {
+  --primary-color: #0070f3;
+  --secondary-color: #00a4ff;
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --text-muted: #4b5563;
+  --card-bg: #f7f9fc;
+  --card-border: #e5e9f0;
+  --nav-border: #eef1f6;
+  --footer-bg: #0b1220;
+  --footer-text: #cbd5e1;
+}
+
+body.dark-mode {
+  --bg-color: #0b1220;
+  --text-color: #f1f5f9;
+  --text-muted: #94a3b8;
+  --card-bg: #131b2c;
+  --card-border: #223049;
+  --nav-border: #1c2740;
+  --footer-bg: #060a12;
+  --footer-text: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
 .text-center {
   text-align: center;
 }
 
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--nav-border);
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color);
+  z-index: 100;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-title {
+  fill: var(--text-color);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+#themeToggle {
+  border: 1px solid var(--card-border);
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: #ffffff;
+  padding: 6rem 1.5rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #ffffff;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Sections / Headings ---------- */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+#about p {
+  color: var(--text-muted);
+  max-width: 760px;
+  font-size: 1.05rem;
+}
+
+/* ---------- Services Grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.card p {
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* ---------- Contact ---------- */
 .contact-subtext {
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  opacity: 0.9;
+  color: var(--text-muted);
 }
 
 .email-box {
@@ -35,4 +236,34 @@
 .contact-email:hover {
   text-decoration: underline;
   opacity: 0.85;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 1.25rem;
+  }
+
+  .hero {
+    padding: 4rem 1.25rem;
+  }
+
+  .email-box {
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
+  }
 }
