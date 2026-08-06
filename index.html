@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trailbridge Consulting Services</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a
+        href="#"
+        class="brand-logo"
+        aria-label="Trailbridge Consulting Services Home"
+      >
+        <svg
+          width="210"
+          height="40"
+          viewBox="0 0 210 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!-- Bridge / Path Icon -->
+          <path
+            d="M6 28C14 14 26 14 34 28"
+            stroke="#0070F3"
+            stroke-width="3.5"
+            stroke-linecap="round"
+          />
+          <path
+            d="M2 32C15 20 25 20 38 32"
+            stroke="#00A4FF"
+            stroke-width="2"
+            stroke-dasharray="2 2"
+          />
+          <circle cx="20" cy="11" r="3" fill="#0070F3" />
+
+          <!-- Company Name Text -->
+          <text
+            class="logo-title"
+            x="46"
+            y="22"
+            font-family="Arial, sans-serif"
+            font-size="15"
+            font-weight="bold"
+            fill="#1A1A1A"
+          >
+            TRAILBRIDGE
+          </text>
+          <text
+            x="46"
+            y="33"
+            font-family="Arial, sans-serif"
+            font-size="9"
+            font-weight="600"
+            fill="#0070F3"
+            letter-spacing="1.5"
+          >
+            CONSULTING SERVICES
+          </text>
+        </svg>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Trailbridge Consulting Services</h1>
+        <p>
+          Bridging technology, strategy, and execution for modern enterprise
+          growth.
+        </p>
+        <a href="#contact" class="btn-primary">Get in Touch</a>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+      <h2>About Us</h2>
+      <p>
+        Trailbridge Consulting Services specializes in delivering custom IT,
+        cloud, and digital transformation solutions. We empower organizations to
+        navigate technological evolutions with strategic expertise and
+        end-to-end implementation.
+      </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container">
+      <h2>Our Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Cloud & Architecture</h3>
+          <p>
+            Scalable cloud infrastructure design, migration strategies, and
+            enterprise deployment optimization.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Software Engineering</h3>
+          <p>
+            Tailored web platforms, integrations, and scalable full-stack
+            applications built to industry standards.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Strategic Consulting</h3>
+          <p>
+            Technology advisory services to align your business operations with
+            current digital ecosystems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea
+          id="message"
+          placeholder="How can Trailbridge Consulting Services assist you?"
+          rows="5"
+          required
+        ></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+      <p id="formStatus" class="form-status"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 Trailbridge Consulting Services. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
