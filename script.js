@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Contact form handler (safely handled if a form is present on the page)
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
 

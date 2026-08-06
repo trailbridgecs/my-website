@@ -16,10 +16,6 @@
 
   --font-display: "Sora", -apple-system, sans-serif;
   --font-body: "Inter", -apple-system, sans-serif;
-
-  /* Swap this for a licensed photo URL if you'd rather use one, e.g.
-     --hero-bg-image: url("images/hero-network.jpg");  */
-  --hero-bg-image: none;
 }
 
 body.dark-mode {
@@ -143,57 +139,18 @@ a {
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
+  background-color: #050d1c;
   color: #ffffff;
   padding: 6rem 1.5rem;
   text-align: center;
 }
 
-/* Mesh / network background — swap --hero-bg-image for a photo if desired */
-.hero-mesh {
+.hero-bg {
   position: absolute;
   inset: 0;
-  background-image:
-    var(--hero-bg-image),
-    radial-gradient(
-      circle at 1px 1px,
-      rgba(255, 255, 255, 0.35) 1px,
-      transparent 0
-    );
-  background-size:
-    cover,
-    34px 34px;
-  background-position: center, center;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.hero-mesh::before,
-.hero-mesh::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-}
-
-.hero-mesh::before {
-  width: 420px;
-  height: 420px;
-  top: -120px;
-  left: -80px;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.hero-mesh::after {
-  width: 360px;
-  height: 360px;
-  bottom: -140px;
-  right: -60px;
-  background: rgba(0, 20, 60, 0.18);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .hero-content {

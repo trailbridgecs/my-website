@@ -18,7 +18,7 @@
       <a
         href="#"
         class="brand-logo"
-        aria-label="Trailbridge Consulting Services Home"
+        aria-label="TrailBridge Consulting Services Home"
       >
         <svg
           class="brand-icon"
@@ -44,7 +44,7 @@
         </svg>
 
         <span class="brand-text">
-          <span class="brand-name">Trailbridge</span>
+          <span class="brand-name">TrailBridge</span>
           <span class="brand-tagline">Consulting Services</span>
         </span>
       </a>
@@ -60,7 +60,114 @@
 
     <!-- Hero Section -->
     <header class="hero">
-      <div class="hero-mesh" aria-hidden="true"></div>
+      <svg
+        class="hero-bg"
+        viewBox="0 0 1600 800"
+        preserveAspectRatio="xMidYMid slice"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="heroBase" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#050d1c" />
+            <stop offset="50%" stop-color="#0b2547" />
+            <stop offset="100%" stop-color="#12406f" />
+          </linearGradient>
+          <linearGradient id="wave1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7fd4ff" stop-opacity="0" />
+            <stop offset="45%" stop-color="#7fd4ff" stop-opacity="0.35" />
+            <stop offset="100%" stop-color="#bfe9ff" stop-opacity="0.05" />
+          </linearGradient>
+          <linearGradient id="wave2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3fa9ff" stop-opacity="0" />
+            <stop offset="55%" stop-color="#3fa9ff" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#8fd9ff" stop-opacity="0.05" />
+          </linearGradient>
+        </defs>
+
+        <rect width="1600" height="800" fill="url(#heroBase)" />
+
+        <!-- flowing wave ribbons -->
+        <path
+          d="M-50,430 C250,330 420,520 700,420 C980,320 1150,470 1650,360"
+          fill="none"
+          stroke="url(#wave1)"
+          stroke-width="60"
+          stroke-linecap="round"
+        />
+        <path
+          d="M-50,480 C300,560 500,380 800,460 C1100,540 1300,400 1650,470"
+          fill="none"
+          stroke="url(#wave2)"
+          stroke-width="46"
+          stroke-linecap="round"
+        />
+        <path
+          d="M-50,360 C280,300 460,400 760,340 C1060,280 1250,380 1650,300"
+          fill="none"
+          stroke="#bfe9ff"
+          stroke-opacity="0.12"
+          stroke-width="2"
+        />
+
+        <!-- circuit traces -->
+        <g
+          fill="none"
+          stroke="#a8dcff"
+          stroke-opacity="0.55"
+          stroke-width="1.5"
+        >
+          <polyline points="120,150 220,150 220,210 320,210 320,170 420,170" />
+          <polyline
+            points="980,120 1080,120 1080,180 1180,180 1180,140 1300,140"
+          />
+          <polyline
+            points="1050,560 1150,560 1150,500 1260,500 1260,540 1380,540"
+          />
+          <polyline points="200,600 300,600 300,650 400,650" />
+          <polyline points="700,140 700,90 820,90" />
+        </g>
+        <g fill="#eaf6ff" fill-opacity="0.9">
+          <circle cx="120" cy="150" r="3.5" />
+          <circle cx="320" cy="170" r="3.5" />
+          <circle cx="420" cy="170" r="3.5" />
+          <circle cx="980" cy="120" r="3.5" />
+          <circle cx="1300" cy="140" r="3.5" />
+          <circle cx="1050" cy="560" r="3.5" />
+          <circle cx="1380" cy="540" r="3.5" />
+          <circle cx="200" cy="600" r="3.5" />
+          <circle cx="400" cy="650" r="3.5" />
+          <circle cx="820" cy="90" r="3.5" />
+        </g>
+
+        <!-- hex accent -->
+        <polygon
+          points="230,60 260,77 260,111 230,128 200,111 200,77"
+          fill="none"
+          stroke="#7fd4ff"
+          stroke-opacity="0.3"
+          stroke-width="2"
+        />
+        <polygon
+          points="1400,620 1425,634 1425,662 1400,676 1375,662 1375,634"
+          fill="none"
+          stroke="#7fd4ff"
+          stroke-opacity="0.3"
+          stroke-width="2"
+        />
+
+        <!-- scattered dot dust -->
+        <g fill="#eaf6ff" fill-opacity="0.5">
+          <circle cx="90" cy="260" r="2" />
+          <circle cx="150" cy="300" r="1.5" />
+          <circle cx="60" cy="340" r="2" />
+          <circle cx="180" cy="230" r="1.5" />
+          <circle cx="1480" cy="220" r="2" />
+          <circle cx="1520" cy="270" r="1.5" />
+          <circle cx="1450" cy="310" r="2" />
+          <circle cx="1540" cy="180" r="1.5" />
+        </g>
+      </svg>
 
       <div class="hero-content">
         <svg
@@ -105,7 +212,7 @@
     <section id="about" class="container">
       <h2>About Us</h2>
       <p>
-        Trailbridge Consulting Services delivers strategic Salesforce expertise
+        TrailBridge Consulting Services delivers strategic Salesforce expertise
         designed to streamline operations and elevate customer experience. We
         specialize in configuring and customizing core CRM clouds to align
         seamlessly with your business workflows.
@@ -160,7 +267,7 @@
 
     <!-- Footer -->
     <footer>
-      <p>&copy; 2026 Trailbridge Consulting Services. All rights reserved.</p>
+      <p>&copy; 2026 TrailBridge Consulting Services. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
