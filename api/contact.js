@@ -8,9 +8,9 @@ module.exports = async (req, res) => {
 
   const { name, email, message } = req.body;
 
-  // Configure GoDaddy Titan Email SMTP
+  // Configure Gmail SMTP
   const transporter = nodemailer.createTransport({
-    host: "smtp.titan.email",
+    host: "smtp.gmail.com",
     port: 465,
     secure: true, // SSL
     auth: {
