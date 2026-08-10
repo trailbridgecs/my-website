@@ -88,6 +88,51 @@ a {
   gap: 0.65rem;
 }
 
+.brand-icon-wrap {
+  width: 76px;
+  height: 83px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.brand-icon-scale {
+  position: relative;
+  width: 180px;
+  height: 196px;
+  transform: scale(0.42);
+  transform-origin: top left;
+}
+
+.hero-icon-wrap {
+  position: relative;
+  width: 130px;
+  height: 140px;
+  margin: 0 auto 1.25rem;
+}
+
+.hero-icon-scale {
+  position: relative;
+  width: 180px;
+  height: 196px;
+  transform: scale(0.72);
+  transform-origin: top left;
+}
+
+.tbcs-logo-text {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 180px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  -webkit-text-stroke: 1.6px #0070f3;
+}
+
 .brand-icon {
   flex-shrink: 0;
 }
@@ -101,7 +146,7 @@ a {
 .brand-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.55rem;
   letter-spacing: 0.2px;
   color: var(--text-color);
 }
@@ -109,8 +154,8 @@ a {
 .brand-tagline {
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.62rem;
-  letter-spacing: 2.2px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--primary-color);
 }
@@ -193,9 +238,24 @@ a {
   margin: 0 auto;
 }
 
-.hero-icon {
-  margin-bottom: 1.25rem;
-  animation: heroBump 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+/* Logo Sequential Animation Rules */
+.anim-bridge {
+  opacity: 0;
+  transform-origin: center bottom;
+  animation: bridgeAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.anim-cloud {
+  opacity: 0;
+  animation: cloudDrop 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.85s;
+}
+
+.anim-cloud-text {
+  opacity: 0;
+  animation: cloudTextDrop 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.85s;
 }
 
 .hero-title {
@@ -211,7 +271,7 @@ a {
   opacity: 0;
   transform: translateY(22px);
   animation: heroWordReveal 0.65s ease forwards;
-  animation-delay: calc(0.55s + var(--i) * 0.16s);
+  animation-delay: calc(1.75s + var(--i) * 0.18s);
 }
 
 .hero-word:not(:last-child)::after {
@@ -224,27 +284,45 @@ a {
   opacity: 0;
   transform: translateY(16px);
   animation: heroWordReveal 0.7s ease forwards;
-  animation-delay: 1.25s;
+  animation-delay: 2.35s;
 }
 
-@keyframes heroBump {
+@keyframes bridgeAppear {
   0% {
     opacity: 0;
-    transform: scale(0.2) rotate(-10deg);
-  }
-  55% {
-    opacity: 1;
-    transform: scale(1.3) rotate(5deg);
-  }
-  75% {
-    transform: scale(0.92) rotate(-2deg);
-  }
-  90% {
-    transform: scale(1.05);
+    transform: translateY(40px) scale(0.85);
   }
   100% {
     opacity: 1;
-    transform: scale(1) rotate(0deg);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cloudDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  70% {
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cloudTextDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  70% {
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -256,7 +334,9 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-icon,
+  .anim-bridge,
+  .anim-cloud,
+  .anim-cloud-text,
   .hero-word,
   .hero-subtext {
     animation: none;
@@ -283,7 +363,7 @@ a {
   text-transform: uppercase;
   opacity: 0;
   animation: heroWordReveal 0.7s ease forwards;
-  animation-delay: 1.9s;
+  animation-delay: 2.8s;
 }
 
 .hero-scroll-cue svg {
