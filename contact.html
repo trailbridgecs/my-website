@@ -15,11 +15,7 @@
   <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-      <a
-        href="index.html"
-        class="brand-logo"
-        aria-label="TrailBridge Consulting Services Home"
-      >
+      <div class="brand-logo">
         <svg
           class="brand-icon"
           width="34"
@@ -44,13 +40,10 @@
         </svg>
 
         <span class="brand-text">
-          <span class="brand-short">TBCS</span>
-          <span class="brand-full">
-            <span class="brand-name">TrailBridge</span>
-            <span class="brand-tagline">Consulting Services</span>
-          </span>
+          <span class="brand-name">TrailBridge</span>
+          <span class="brand-tagline">Consulting Services</span>
         </span>
-      </a>
+      </div>
 
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -76,14 +69,26 @@
     <section class="container text-center">
       <div class="email-box reveal">
         <span class="email-icon">✉️</span>
-        <a href="mailto:trailbridgecs@gmail.com" class="contact-email"
-          >trailbridgecs@gmail.com</a
+        <a href="mailto:info@trailbridgecs.co.in" class="contact-email"
+          >info@trailbridgecs.co.in</a
         >
       </div>
 
       <div class="contact-divider reveal">or send a message</div>
 
-      <form id="contactForm" class="contact-form reveal">
+      <form
+        id="contactForm"
+        class="contact-form reveal"
+        action="https://formsubmit.co/info@trailbridgecs.co.in"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="New message from the TrailBridge website"
+        />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
         <div class="form-field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required />

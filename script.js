@@ -10,20 +10,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Contact form handler
-  // NOTE: this currently only shows a confirmation message in the browser.
-  // It does not yet send an email anywhere. Once the GoDaddy mailbox (or a
-  // form service like Web3Forms/Formspree) is ready, replace this handler
-  // with an actual fetch()/submit to that endpoint.
+  // Sends the message via FormSubmit (https://formsubmit.co) — a free
+  // service that forwards form submissions to a real inbox with no backend
+  // needed. IMPORTANT: the first submission after setup triggers a
+  // one-time confirmation email to info@trailbridgecs.co.in — that link
+  // must be clicked once before messages start arriving normally.
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
 
   if (form && status) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      status.textContent =
-        "Thank you for reaching out to TrailBridge Consulting Services! We will get back to you shortly.";
-      status.style.color = "#10B981";
-      form.reset();
+      status.textContent = "Sending...";
+      status.style.color = "";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
+
+        status.textContent =
+          "Thank you for reaching out to TrailBridge Consulting Services! We will get back to you shortly.";
+        status.style.color = "#10B981";
+        form.reset();
+      } catch (err) {
+        status.textContent =
+          "Something went wrong sending your message. Please email us directly at info@trailbridgecs.co.in.";
+        status.style.color = "#E24B4A";
+      }
     });
   }
 
