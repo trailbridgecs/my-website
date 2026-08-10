@@ -1,42 +1,45 @@
 const nodemailer = require("nodemailer");
 
 module.exports = async (req, res) => {
+  // Only allow POST requests
   if (req.method !== "POST") {
-    res.status(405).json({ error: "Method not allowed" });
-    return;
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, message } = req.body || {};
+  const { name, email, message } = req.body;
 
-  if (!name || !email || !message) {
-    res.status(400).json({ error: "Missing required fields" });
-    return;
-  }
+  // Configure GoDaddy Titan Email SMTP
+  const transporter = nodemailer.createTransport({
+    host: "smtp.titan.email",
+    port: 465,
+    secure: true, // SSL
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
 
   try {
-    // Titan Email SMTP settings (GoDaddy "Professional Email", confirmed by
-    // the secureserver.titan.email login page).
-    const transporter = nodemailer.createTransport({
-      host: "smtp.titan.email",
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
     await transporter.sendMail({
-      from: `"TrailBridge Website" <${process.env.SMTP_USER}>`,
+      from: `"Website Form" <${process.env.EMAIL_USER}>`,
       to: "info@trailbridgecs.co.in",
-      replyTo: email,
-      subject: "New message from the TrailBridge website",
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      replyTo: email, // Directly reply to the submitter
+      subject: `New Contact Form Submission from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      html: `
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
     });
 
-    res.status(200).json({ success: true });
-  } catch (err) {
-    console.error("Email send failed:", err);
-    res.status(500).json({ error: "Failed to send email" });
+    return res
+      .status(200)
+      .json({ success: true, message: "Email sent successfully!" });
+  } catch (error) {
+    console.error("SMTP Error:", error);
+    return res.status(500).json({ error: "Failed to send email" });
   }
 };

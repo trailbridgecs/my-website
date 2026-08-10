@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Contact form handler
   // Sends the message via our own /api/contact serverless function, which
   // emails info@trailbridgecs.co.in directly through GoDaddy SMTP.
-  // Requires SMTP_USER / SMTP_PASS to be set as Environment Variables in
+  // Requires EMAIL_USER / EMAIL_PASS to be set as Environment Variables in
   // the Vercel project (Project Settings -> Environment Variables).
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
@@ -23,10 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
       status.textContent = "Sending...";
       status.style.color = "";
 
+      // Target input elements explicitly by ID to avoid undefined values
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const messageInput = document.getElementById("message");
+
       const payload = {
-        name: form.name.value,
-        email: form.email.value,
-        message: form.message.value,
+        name: nameInput ? nameInput.value : "",
+        email: emailInput ? emailInput.value : "",
+        message: messageInput ? messageInput.value : "",
       };
 
       try {
