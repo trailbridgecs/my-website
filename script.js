@@ -10,11 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Contact form handler
-  // Sends the message via FormSubmit (https://formsubmit.co) — a free
-  // service that forwards form submissions to a real inbox with no backend
-  // needed. IMPORTANT: the first submission after setup triggers a
-  // one-time confirmation email to info@trailbridgecs.co.in — that link
-  // must be clicked once before messages start arriving normally.
+  // Sends the message via our own /api/contact serverless function, which
+  // emails info@trailbridgecs.co.in directly through GoDaddy SMTP.
+  // Requires SMTP_USER / SMTP_PASS to be set as Environment Variables in
+  // the Vercel project (Project Settings -> Environment Variables).
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
 
@@ -24,11 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
       status.textContent = "Sending...";
       status.style.color = "";
 
+      const payload = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value,
+      };
+
       try {
-        const response = await fetch(form.action, {
+        const response = await fetch("/api/contact", {
           method: "POST",
-          headers: { Accept: "application/json" },
-          body: new FormData(form),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
         });
 
         if (!response.ok) {
