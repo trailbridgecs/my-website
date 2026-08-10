@@ -16,10 +16,45 @@ document.addEventListener("DOMContentLoaded", () => {
   // hidden "access_key" field in contact.html is tied to that inbox.
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
+  const emailInput = document.getElementById("email");
+  const emailError = document.getElementById("emailError");
+
+  // Requires a proper domain with a TLD (e.g. .com, .co.in, .org) —
+  // rejects things like "name@gmail" that the browser's native
+  // type="email" check alone would otherwise accept.
+  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+
+  const validateEmail = () => {
+    if (!emailInput || !emailError) return true;
+    const value = emailInput.value.trim();
+    if (!EMAIL_PATTERN.test(value)) {
+      emailError.textContent =
+        "Please enter a valid email address, e.g. name@example.com";
+      emailInput.classList.add("invalid");
+      return false;
+    }
+    emailError.textContent = "";
+    emailInput.classList.remove("invalid");
+    return true;
+  };
+
+  if (emailInput) {
+    emailInput.addEventListener("input", () => {
+      if (emailError) emailError.textContent = "";
+      emailInput.classList.remove("invalid");
+    });
+    emailInput.addEventListener("blur", validateEmail);
+  }
 
   if (form && status) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      if (!validateEmail()) {
+        emailInput.focus();
+        return;
+      }
+
       status.textContent = "Sending...";
       status.style.color = "";
 

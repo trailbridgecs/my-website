@@ -98,7 +98,14 @@
         </div>
         <div class="form-field">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$"
+          />
+          <span id="emailError" class="field-error"></span>
         </div>
         <div class="form-field">
           <label for="message">Message</label>

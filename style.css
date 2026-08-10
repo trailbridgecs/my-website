@@ -688,6 +688,18 @@ h3 {
   border-color: var(--primary-color);
 }
 
+.form-field input.invalid {
+  border-color: #e24b4a;
+}
+
+.field-error {
+  display: block;
+  min-height: 1.1rem;
+  margin-top: 0.35rem;
+  color: #e24b4a;
+  font-size: 0.85rem;
+}
+
 .btn-primary {
   display: inline-block;
   background-color: var(--primary-color);
