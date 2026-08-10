@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | TrailBridge Consulting Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <a
+        href="index.html"
+        class="brand-logo"
+        aria-label="TrailBridge Consulting Services Home"
+      >
+        <svg
+          class="brand-icon"
+          width="34"
+          height="34"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 28C14 14 26 14 34 28"
+            stroke="#0070F3"
+            stroke-width="3.5"
+            stroke-linecap="round"
+          />
+          <path
+            d="M2 32C15 20 25 20 38 32"
+            stroke="#00A4FF"
+            stroke-width="2"
+            stroke-dasharray="2 2"
+          />
+          <circle cx="20" cy="11" r="3" fill="#0070F3" />
+        </svg>
+
+        <span class="brand-text">
+          <span class="brand-short">TBCS</span>
+          <span class="brand-full">
+            <span class="brand-name">TrailBridge</span>
+            <span class="brand-tagline">Consulting Services</span>
+          </span>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="services.html" class="active" aria-current="page"
+            >Services</a
+          >
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
+    </nav>
+
+    <!-- Page Banner -->
+    <header class="page-banner">
+      <h1 class="reveal">Our Salesforce practice</h1>
+      <p class="reveal">
+        End-to-end Salesforce services, tailored to how your business actually
+        operates — from first configuration to long-term support.
+      </p>
+    </header>
+
+    <!-- Services Grid -->
+    <section class="container">
+      <h2 class="reveal">What we offer</h2>
+      <p class="reveal lead-text">
+        Whether you're standing up Salesforce for the first time or refining a
+        mature org, we bring focused, hands-on expertise to every engagement.
+      </p>
+      <div class="grid">
+        <div class="card reveal">
+          <h3>Sales Cloud Implementation & Optimization</h3>
+          <p>
+            Optimize your lead-to-cash pipeline with custom deal stages, lead
+            scoring, automated workflows, and sales forecasting designed around
+            your sales process.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>Service Cloud Excellence</h3>
+          <p>
+            Transform customer support with Case Management, Omni-Channel
+            routing, Service Console configuration, Knowledge bases, and
+            automated SLA escalations.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>CRM Enhancements & Automation</h3>
+          <p>
+            Tailored Apex automation and process design that removes manual work
+            and keeps your CRM data clean, consistent, and reliable.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>Lightning Web Component Development</h3>
+          <p>
+            Custom, high-performance LWC interfaces for teams that have outgrown
+            out-of-the-box pages — built for speed, clarity, and long-term
+            maintainability.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>Systems Integration & Data Migration</h3>
+          <p>
+            Connect Salesforce to the other tools your business relies on, and
+            migrate legacy data cleanly, with minimal disruption to daily
+            operations.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>Ongoing Support & Managed Services</h3>
+          <p>
+            Continued partnership after go-live — monitoring, refinement, and
+            hands-on support as your Salesforce org grows with your business.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How We Work -->
+    <section class="container">
+      <h2 class="reveal">How we work</h2>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <h3>Discover</h3>
+          <p>
+            We start by understanding your business, your workflows, and where
+            Salesforce is falling short today.
+          </p>
+        </div>
+        <div class="process-step reveal">
+          <h3>Design</h3>
+          <p>
+            We map out a solution tailored to your processes, not a generic
+            best-practice template.
+          </p>
+        </div>
+        <div class="process-step reveal">
+          <h3>Build</h3>
+          <p>
+            Our team configures, customizes, and tests thoroughly before
+            anything reaches your users.
+          </p>
+        </div>
+        <div class="process-step reveal">
+          <h3>Support</h3>
+          <p>
+            We stay engaged after launch, so your Salesforce investment keeps
+            delivering value over time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner reveal">
+      <h2>Let's talk about your Salesforce roadmap</h2>
+      <p>
+        Every business is different — let's figure out what a tailored
+        Salesforce solution looks like for yours.
+      </p>
+      <a href="contact.html" class="btn-white">Contact us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <p>&copy; 2026 TrailBridge Consulting Services. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M3 10l5-5 5 5"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -16,7 +16,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
       <a
-        href="#"
+        href="index.html"
         class="brand-logo"
         aria-label="TrailBridge Consulting Services Home"
       >
@@ -44,15 +44,20 @@
         </svg>
 
         <span class="brand-text">
-          <span class="brand-name">TrailBridge</span>
-          <span class="brand-tagline">Consulting Services</span>
+          <span class="brand-short">TBCS</span>
+          <span class="brand-full">
+            <span class="brand-name">TrailBridge</span>
+            <span class="brand-tagline">Consulting Services</span>
+          </span>
         </span>
       </a>
 
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="index.html" class="active" aria-current="page">Home</a>
+        </li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
 
       <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
@@ -87,7 +92,6 @@
 
         <rect width="1600" height="800" fill="url(#heroBase)" />
 
-        <!-- flowing wave ribbons -->
         <path
           d="M-50,430 C250,330 420,520 700,420 C980,320 1150,470 1650,360"
           fill="none"
@@ -110,7 +114,6 @@
           stroke-width="2"
         />
 
-        <!-- circuit traces -->
         <g
           fill="none"
           stroke="#a8dcff"
@@ -140,7 +143,6 @@
           <circle cx="820" cy="90" r="3.5" />
         </g>
 
-        <!-- hex accent -->
         <polygon
           points="230,60 260,77 260,111 230,128 200,111 200,77"
           fill="none"
@@ -156,7 +158,6 @@
           stroke-width="2"
         />
 
-        <!-- scattered dot dust -->
         <g fill="#eaf6ff" fill-opacity="0.5">
           <circle cx="90" cy="260" r="2" />
           <circle cx="150" cy="300" r="1.5" />
@@ -244,20 +245,28 @@
       </svg>
     </header>
 
-    <!-- About Section -->
+    <!-- Who We Are -->
     <section id="about" class="container">
-      <h2 class="reveal">About Us</h2>
-      <p class="reveal">
-        TrailBridge Consulting Services delivers strategic Salesforce expertise
-        designed to streamline operations and elevate customer experience. We
-        specialize in configuring and customizing core CRM clouds to align
-        seamlessly with your business workflows.
+      <h2 class="reveal">Who we are</h2>
+      <p class="reveal lead-text">
+        TrailBridge Consulting Services is a Salesforce consultancy built around
+        one idea: your business is not a template, so your CRM shouldn't be
+        either. We partner closely with every client to design solutions
+        engineered around the way they actually work, turning complex Salesforce
+        environments into streamlined, dependable growth engines. From first
+        strategy conversation through go-live and beyond, we stay close to the
+        details that matter to you.
       </p>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="container">
-      <h2 class="reveal">Salesforce Consulting Services</h2>
+    <!-- What We Do -->
+    <section id="what-we-do" class="container">
+      <h2 class="reveal">What we do</h2>
+      <p class="reveal lead-text">
+        We help organizations get more out of Salesforce — from foundational
+        setup to advanced customization — with solutions tailored to fit, not
+        force, your workflows.
+      </p>
       <div class="grid">
         <div class="card reveal">
           <h3>Sales Cloud Implementation & Optimization</h3>
@@ -283,26 +292,61 @@
           </p>
         </div>
       </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container text-center">
-      <h2 class="reveal">Get in Touch</h2>
-      <p class="contact-subtext reveal">
-        Have a Salesforce requirement or looking to optimize your Sales &
-        Service Cloud implementation?
-      </p>
-
-      <div class="email-box reveal">
-        <span class="email-icon">✉️</span>
-        <a href="mailto:trailbridgecs@gmail.com" class="contact-email"
-          >trailbridgecs@gmail.com</a
+      <div class="reveal text-center" style="margin-top: 2.5rem">
+        <a
+          href="services.html"
+          class="btn-primary"
+          style="text-decoration: none"
+          >Explore our services</a
         >
       </div>
     </section>
 
+    <!-- Why TrailBridge -->
+    <section class="container">
+      <h2 class="reveal">Why TrailBridge</h2>
+      <div class="value-props">
+        <div class="value-prop reveal">
+          <h3>Tailored, not templated</h3>
+          <p>
+            Every engagement starts with understanding how your teams actually
+            work, so the solution fits from day one.
+          </p>
+        </div>
+        <div class="value-prop reveal">
+          <h3>Deep platform expertise</h3>
+          <p>
+            Years of hands-on Salesforce experience across Sales Cloud, Service
+            Cloud, Apex, and Lightning Web Components.
+          </p>
+        </div>
+        <div class="value-prop reveal">
+          <h3>Partnership beyond go-live</h3>
+          <p>
+            We stay engaged after launch, so your Salesforce investment keeps
+            paying off as your business evolves.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner reveal">
+      <h2>Ready to reimagine your Salesforce experience?</h2>
+      <p>
+        Let's talk about what a tailored Salesforce solution could look like for
+        your business.
+      </p>
+      <a href="contact.html" class="btn-white">Get in touch</a>
+    </section>
+
     <!-- Footer -->
     <footer>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
       <p>&copy; 2026 TrailBridge Consulting Services. All rights reserved.</p>
     </footer>
 
