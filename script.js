@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Contact form handler
-  // Sends the message via our own /api/contact serverless function, which
-  // emails info@trailbridgecs.co.in directly through GoDaddy SMTP.
-  // Requires EMAIL_USER / EMAIL_PASS to be set as Environment Variables in
-  // the Vercel project (Project Settings -> Environment Variables).
+  // Sends the message via Web3Forms (https://web3forms.com) — a free
+  // third-party form service that emails info@trailbridgecs.co.in directly.
+  // No backend, no SMTP, no Vercel env vars needed. The access key in the
+  // hidden "access_key" field in contact.html is tied to that inbox.
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
 
@@ -23,26 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
       status.textContent = "Sending...";
       status.style.color = "";
 
-      // Target input elements explicitly by ID to avoid undefined values
-      const nameInput = document.getElementById("name");
-      const emailInput = document.getElementById("email");
-      const messageInput = document.getElementById("message");
-
-      const payload = {
-        name: nameInput ? nameInput.value : "",
-        email: emailInput ? emailInput.value : "",
-        message: messageInput ? messageInput.value : "",
-      };
-
       try {
-        const response = await fetch("/api/contact", {
+        const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
         });
 
-        if (!response.ok) {
-          throw new Error("Request failed");
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "Request failed");
         }
 
         status.textContent =
