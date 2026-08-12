@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Web3Forms API Key (stored in JS to prevent public exposure in HTML)
+  const WEB3FORMS_ACCESS_KEY = "325e8b30-e6c3-4910-a51d-e386fbce9089";
+
   // Dark mode toggle
   const toggleBtn = document.getElementById("themeToggle");
   if (toggleBtn) {
@@ -12,8 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Contact form handler
   // Sends the message via Web3Forms (https://web3forms.com) — a free
   // third-party form service that emails info@trailbridgecs.co.in directly.
-  // No backend, no SMTP, no Vercel env vars needed. The access key in the
-  // hidden "access_key" field in contact.html is tied to that inbox.
+  // API key is stored in this file (not in HTML) for better security.
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
   const emailInput = document.getElementById("email");
@@ -59,10 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
       status.style.color = "";
 
       try {
+        const formData = new FormData(form);
+        // Add the API key programmatically
+        formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+
         const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: { Accept: "application/json" },
-          body: new FormData(form),
+          body: formData,
         });
 
         const result = await response.json();
