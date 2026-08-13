@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact | TrailBridge Consulting Services</title>
+    <title>Trust & Security | TrailBridge Consulting Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -133,9 +133,7 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
-        <li>
-          <a href="contact.html" class="active" aria-current="page">Contact</a>
-        </li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
 
       <button id="themeToggle" aria-label="Toggle Dark Mode">🌙</button>
@@ -143,62 +141,59 @@
 
     <!-- Page Banner -->
     <header class="page-banner">
-      <h1 class="reveal">Get in touch</h1>
+      <h1 class="reveal">Trust & Security</h1>
       <p class="reveal">
-        Have a Salesforce requirement or looking to optimize your Sales &
-        Service Cloud implementation? We'd love to hear from you.
+        How we handle data, build responsibly, and stay accountable to the
+        clients and Salesforce customers we work with.
       </p>
     </header>
 
-    <!-- Contact Options -->
-    <section class="container text-center">
-      <div class="email-box reveal">
-        <span class="email-icon">✉️</span>
-        <a href="mailto:info@trailbridgecs.co.in" class="contact-email"
-          >info@trailbridgecs.co.in</a
-        >
-      </div>
+    <!-- Data Handling -->
+    <section class="container">
+      <h2 class="reveal">How we handle data</h2>
+      <p class="reveal lead-text">
+        Our engagements are built inside our clients' own Salesforce
+        environments. We follow least-privilege access practices, work within
+        the permissions granted for each engagement, and do not retain client
+        data outside the systems we're contracted to work in. Where a project
+        involves configuring integrations or AI components such as Agentforce,
+        we document data flows clearly as part of that work, so it's always
+        visible what moves where.
+      </p>
+    </section>
 
-      <div class="contact-divider reveal">or send a message</div>
+    <!-- Development Practices -->
+    <section class="container">
+      <h2 class="reveal">How we build</h2>
+      <p class="reveal lead-text">
+        We follow secure development practices across our work: scoped
+        permissions rather than broad access, no hardcoded credentials in code
+        or configuration, and version-controlled, reviewed changes rather than
+        ad hoc edits directly in production. For packaged solutions intended for
+        AppExchange distribution, we build toward Salesforce's own Security
+        Review standards as part of our development process.
+      </p>
+    </section>
 
-      <form
-        id="contactForm"
-        class="contact-form reveal"
-        action="https://api.web3forms.com/submit"
-        method="POST"
-      >
-        <input
-          type="hidden"
-          name="access_key"
-          value="325e8b30-e6c3-4910-a51d-e386fbce9089"
-        />
-        <input
-          type="hidden"
-          name="subject"
-          value="New message from the TrailBridge website"
-        />
-        <div class="form-field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
-        </div>
-        <div class="form-field">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$"
-          />
-          <span id="emailError" class="field-error"></span>
-        </div>
-        <div class="form-field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit" class="btn-primary">Send message</button>
-        <p id="formStatus" class="form-status"></p>
-      </form>
+    <!-- Responsible Disclosure -->
+    <section class="container">
+      <h2 class="reveal">Report a security concern</h2>
+      <p class="reveal lead-text">
+        If you believe you've found a security issue related to our work or our
+        website, we'd like to hear about it directly. Please email
+        <a href="mailto:info@trailbridgecs.co.in">info@trailbridgecs.co.in</a>
+        with details, and we'll respond as quickly as we can.
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner reveal">
+      <h2>Have questions about how we work?</h2>
+      <p>
+        We're happy to walk through our approach to security and data handling
+        in more detail for any engagement.
+      </p>
+      <a href="contact.html" class="btn-white">Get in touch</a>
     </section>
 
     <!-- Footer -->
